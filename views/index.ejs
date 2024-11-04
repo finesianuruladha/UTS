@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manajemen Event</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Times New Roman', serif; /* Mengubah font menjadi Times New Roman */
+      background-color: #0d1b2a;
+      color: #fff;
+    }
+    .navbar {
+      background-color: #1a1a2e;
+    }
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+    }
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      background-color: #162447;
+      color: #fff;
+    }
+    .hero-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .hero-section p {
+      font-size: 1.2rem;
+      color: #dcdde1;
+      margin-bottom: 20px;
+    }
+    .btn-start {
+      background-color: #e94560;
+      border: none;
+      color: #fff;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      border-radius: 25px;
+      transition: background-color 0.3s ease;
+    }
+    .btn-start:hover {
+      background-color: #d23a50;
+    }
+    .info-section {
+      padding: 40px 20px;
+      background-color: #1b263b;
+      color: #dcdde1;
+      text-align: center;
+    }
+    .info-section h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    .info-section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 20px auto;
+    }
+    .info-section .benefit {
+      margin: 20px 0;
+      padding: 15px;
+      background-color: #162447;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+      background-color: #1a1a2e;
+      color: #dcdde1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">Manajemen Event</a>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <!-- Elemen dengan ID nav-login -->
+        <li class="nav-item" id="nav-login">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1 id="welcome-text">Selamat Datang di Manajemen Event</h1>
+    <p id="hero-description">Kelola acara Anda dengan mudah dan efektif!</p>
+    <a href="#" id="start-button" class="btn btn-start">Mulai Sekarang</a>
+  </section>
+
+  <!-- Informasi Layanan Manajemen Event -->
+  <section class="info-section">
+    <h2>Kenapa Memilih Manajemen Event Kami?</h2>
+    <p>
+      Manajemen Event kami hadir untuk membantu Anda dalam mengelola berbagai jenis acara secara efisien dan profesional.
+      Dengan fitur-fitur seperti pengelolaan tamu, jadwal, dan detail acara yang lengkap, kami memastikan setiap aspek
+      dari acara Anda berjalan lancar. Baik itu acara perusahaan, pernikahan, atau konferensi, layanan kami memberikan
+      fleksibilitas dan kemudahan yang Anda butuhkan.
+    </p>
+    
+    <div class="benefit">
+      <h5>Fleksibilitas</h5>
+      <p>Fitur kami dirancang untuk disesuaikan dengan berbagai jenis acara, sehingga Anda dapat dengan mudah menyesuaikan setiap detail.</p>
+    </div>
+    <div class="benefit">
+      <h5>Efisiensi</h5>
+      <p>Dengan alat manajemen yang canggih, Anda dapat menghemat waktu dan usaha, memfokuskan perhatian pada hal-hal yang lebih penting.</p>
+    </div>
+    <div class="benefit">
+      <h5>Profesionalisme</h5>
+      <p>Tim kami memiliki pengalaman dalam mengelola berbagai acara, sehingga Anda dapat yakin bahwa acara Anda ada di tangan yang tepat.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    ©  Finesia Nurul Adha (2305877)
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Simulasi status login, ubah ke `true` jika pengguna sudah login
+      const isLoggedIn = false; // Ganti dengan status login dari server
+
+      // Cek status login dan update tampilan
+      if (isLoggedIn) {
+        document.getElementById("welcome-text").innerText = "Selamat Datang Kembali!";
+        document.getElementById("hero-description").innerText = "Lihat dan kelola data event Anda di sini.";
+        document.getElementById("start-button").href = "/tabel-crud"; // Link ke tabel CRUD
+        document.getElementById("start-button").innerText = "Lihat Data Event";
+        document.getElementById("nav-login").style.display = "none"; // Sembunyikan tombol login jika sudah login
+      } else {
+        document.getElementById("start-button").href = "/tabel-crud"; // Link ke tabel CRUD
+      }
+    });
+  </script>
+</body>
+</html>

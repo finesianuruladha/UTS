@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Event</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Daftar Event</h1>
+        <a href="/events/add" class="btn btn-primary mb-3">Tambah Event</a>
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama</th>
+                    <th>Deskripsi</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (events && events.length > 0) { %>
+                    <% events.forEach(event => { %>
+                        <tr>
+                            <td><%= event.id %></td>
+                            <td><%= event.name %></td>
+                            <td><%= event.description %></td>
+                            <td>
+                                <a href="/events/edit/<%= event.id %>" class="btn btn-warning">Edit</a>
+                                <a href="/events/delete/<%= event.id %>" class="btn btn-danger">Hapus</a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="4" class="text-center">Tidak ada event ditemukan.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

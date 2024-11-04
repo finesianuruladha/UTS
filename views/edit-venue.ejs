@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Venue</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Link ke file CSS Anda -->
+</head>
+<body>
+    <h1>Edit Venue</h1>
+    <form action="/venues/edit/<%= venue.id %>" method="POST">
+        <label for="name">Nama Venue:</label>
+        <input type="text" id="name" name="name" value="<%= venue.name %>" required>
+        <br>
+        <label for="location">Lokasi:</label>
+        <input type="text" id="location" name="location" value="<%= venue.location %>" required>
+        <br>
+        <button type="submit">Perbarui</button>
+        <a href="/venues">Kembali</a>
+    </form>
+</body>
+</html>

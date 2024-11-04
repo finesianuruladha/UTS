@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Tiket</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Daftar Tiket</h1>
+    <a href="/tickets/add">Tambah Tiket</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama Tiket</th>
+                <th>Harga</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% tickets.forEach(ticket => { %>
+                <tr>
+                    <td><%= ticket.id %></td>
+                    <td><%= ticket.name %></td>
+                    <td><%= ticket.price %></td>
+                    <td>
+                        <a href="/tickets/edit/<%= ticket.id %>">Edit</a>
+                        <form action="/tickets/delete/<%= ticket.id %>" method="POST" style="display:inline;">
+                            <button type="submit">Hapus</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

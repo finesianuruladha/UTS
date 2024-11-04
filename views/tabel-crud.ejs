@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel CRUD - Manajemen Event</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Times New Roman', serif;
+            padding: 20px;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+
+        .table {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .table th {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+        }
+
+        .table td {
+            vertical-align: middle;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .btn {
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .text-center {
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        .add-btn {
+            display: block;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Data Event, Tiket, dan Venue</h1>
+
+        <!-- Tombol Tambah Event -->
+        <div class="add-btn">
+            <a href="/events/add" class="btn btn-primary">Tambah Event Baru</a>
+        </div>
+
+        <!-- Tabel Event -->
+        <h2>Event</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama Event</th>
+                    <th>Deskripsi</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (events && events.length > 0) { %>
+                    <% events.forEach(event => { %>
+                        <tr>
+                            <td><%= event.id %></td>
+                            <td><%= event.name %></td>
+                            <td><%= event.description %></td>
+                            <td>
+                                <a href="/events/edit/<%= event.id %>" class="btn btn-warning">Edit</a>
+                                <form action="/events/delete/<%= event.id %>" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="4" class="text-center">Tidak ada event tersedia.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+        <!-- Tabel Tiket -->
+        <h2>Tiket</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama Tiket</th>
+                    <th>Harga</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (tickets && tickets.length > 0) { %>
+                    <% tickets.forEach(ticket => { %>
+                        <tr>
+                            <td><%= ticket.id %></td>
+                            <td><%= ticket.name %></td>
+                            <td>Rp <%= ticket.price.toLocaleString() %></td>
+                            <td>
+                                <a href="/tickets/edit/<%= ticket.id %>" class="btn btn-warning">Edit</a>
+                                <form action="/tickets/delete/<%= ticket.id %>" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="4" class="text-center">Tidak ada tiket tersedia.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+        <!-- Tabel Venue -->
+        <h2>Venue</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama Venue</th>
+                    <th>Alamat</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (venues && venues.length > 0) { %>
+                    <% venues.forEach(venue => { %>
+                        <tr>
+                            <td><%= venue.id %></td>
+                            <td><%= venue.name %></td>
+                            <td><%= venue.address %></td>
+                            <td>
+                                <a href="/venues/edit/<%= venue.id %>" class="btn btn-warning">Edit</a>
+                                <form action="/venues/delete/<%= venue.id %>" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="4" class="text-center">Tidak ada venue tersedia.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

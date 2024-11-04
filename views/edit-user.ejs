@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Pengguna</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Edit Pengguna</h1>
+    <form action="/users/edit/<%= user.id %>" method="POST">
+        <label for="username">Nama:</label>
+        <input type="text" id="username" name="username" value="<%= user.username %>" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= user.email %>" required>
+        <button type="submit">Perbarui</button>
+    </form>
+    <a href="/users">Kembali ke Daftar Pengguna</a>
+</body>
+</html>

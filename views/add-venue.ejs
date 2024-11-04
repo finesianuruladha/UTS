@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Venue</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Link ke file CSS Anda -->
+</head>
+<body>
+    <h1>Tambah Venue</h1>
+    <form action="/venues/add" method="POST">
+        <label for="name">Nama Venue:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="location">Lokasi:</label>
+        <input type="text" id="location" name="location" required>
+        <br>
+        <button type="submit">Simpan</button>
+        <a href="/venues">Kembali</a>
+    </form>
+</body>
+</html>

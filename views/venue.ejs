@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Venue</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Link ke file CSS Anda -->
+</head>
+<body>
+    <h1>Daftar Venue</h1>
+    <a href="/venues/add">Tambah Venue</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama Venue</th>
+                <th>Lokasi</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% venues.forEach(venue => { %>
+                <tr>
+                    <td><%= venue.id %></td>
+                    <td><%= venue.name %></td>
+                    <td><%= venue.location %></td>
+                    <td>
+                        <a href="/venues/edit/<%= venue.id %>">Edit</a>
+                        <form action="/venues/delete/<%= venue.id %>" method="POST" style="display:inline;">
+                            <button type="submit">Hapus</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

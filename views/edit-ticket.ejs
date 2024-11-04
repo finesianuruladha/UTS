@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Tiket</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Edit Tiket</h1>
+    <form action="/tickets/edit/<%= ticket.id %>" method="POST">
+        <label for="name">Nama Tiket:</label>
+        <input type="text" id="name" name="name" value="<%= ticket.name %>" required>
+        
+        <label for="price">Harga:</label>
+        <input type="number" id="price" name="price" value="<%= ticket.price %>" required>
+        
+        <label for="eventId">ID Event:</label>
+        <input type="text" id="eventId" name="eventId" value="<%= ticket.eventId %>" required>
+        
+        <button type="submit">Perbarui</button>
+    </form>
+    <a href="/tickets">Kembali ke Daftar Tiket</a>
+</body>
+</html>

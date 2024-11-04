@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Event</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Warna latar belakang yang lembut */
+        }
+        .container {
+            margin-top: 50px;
+            background-color: #ffffff; /* Latar belakang putih untuk form */
+            padding: 30px;
+            border-radius: 8px; /* Sudut yang membulat */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk memberi kedalaman */
+        }
+        h1 {
+            color: #007bff; /* Warna judul */
+            margin-bottom: 30px;
+        }
+        label {
+            font-weight: bold; /* Menebalkan label */
+        }
+        button {
+            background-color: #007bff; /* Warna tombol */
+            color: white; /* Warna teks tombol */
+        }
+        button:hover {
+            background-color: #0056b3; /* Warna tombol saat hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tambah Event Baru</h1>
+        <form action="/events/add" method="POST">
+            <div class="form-group">
+                <label for="name">Nama Event:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Deskripsi:</label>
+                <textarea class="form-control" id="description" name="description" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Tambah Event</button>
+        </form>
+    </div>
+</body>
+</html>
